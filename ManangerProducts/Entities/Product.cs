@@ -1,12 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 
 namespace ManangerProducts.Entities
 {
     internal class Product
     {
+        public string NameProduct { get; set; }
+        public double Price { get; set; }
+
+        public Product() 
+        {
+        }
+
+        public Product(string nameProduct, double price)
+        {
+            NameProduct = nameProduct;
+            Price = price;
+        }
+
+        public virtual string PriceTag()
+        {
+            return NameProduct
+                + " $ "
+                + Price.ToString("F2", CultureInfo.InvariantCulture);
+        }
     }
 }
